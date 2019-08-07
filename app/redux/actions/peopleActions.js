@@ -7,8 +7,19 @@ export const fetchingPeopleSuccess = (json) => ({
   payload: json
 })
 export const fetchingPeopleFailure = (error) => ({
-  type: fetchingPeopleFailure,
+  type: FETCHING_PEOPLE_FAILURE,
   payload: error
 })
 
-
+export const fecthPeople = () => {
+    return async dispatch => {
+        dispatch(fetchingPeopleRequest())
+        try {
+           let response = await fetch('https://randomuser.me/api/?results=99')
+           let json = response.json()
+           dispatch(fetchingPeopleSuccess(json.result)) 
+        } catch (error) {
+            dispatch(fetchingPeopleFailure(error))
+        }
+    }
+}
