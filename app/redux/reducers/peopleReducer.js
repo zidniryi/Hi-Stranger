@@ -13,7 +13,6 @@ import {
      
      export default (state = initialState, action) => {
        switch (action.type) {
-     
        case FETCHING_PEOPLE_REQUEST:
          return { ...state, isFetching:true };
       case FETCHING_PEOPLE_FAILURE:
