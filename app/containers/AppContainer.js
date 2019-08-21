@@ -25,7 +25,6 @@ import PropTypes from "prop-types";
   }
 
   componentDidMount() {
-    // this.fetchRandomPeopleAPI();
     this.props.fecthPeople()
   }
 
@@ -40,6 +39,9 @@ import PropTypes from "prop-types";
   }
 }
 
+/**
+ * Create proptypes to sending the function
+ */
 AppContainer.propTypes = {
   fecthPeople : PropTypes.func.isRequired,
   randomPeople: PropTypes.object.isRequired
@@ -54,6 +56,10 @@ const styles = StyleSheet.create({
   }
 });
 
+/**
+ * 
+ * @param {@global} state 
+ */
 const mapStateToProps = (state) => {
   return {
     randomPeople: state

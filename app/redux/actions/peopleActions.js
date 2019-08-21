@@ -11,6 +11,9 @@ export const fetchingPeopleFailure = (error) => ({
   payload: error
 })
 
+/**
+ * Dispatch state people into json
+ */
 export const fecthPeople = () => {
     return async dispatch => {
         dispatch(fetchingPeopleRequest())

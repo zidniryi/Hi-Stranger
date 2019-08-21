@@ -4,9 +4,13 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import peopleReducer from "./app/redux/reducers/peopleReducer";
-// Passing middlewre as async
+/**
+ * Passing middlewre as async
+ */
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
-// Passing store from reducers people
+/**
+ * Passing middlewre as async
+ */
 const store = createStoreWithMiddleware(peopleReducer)
 export default class App extends Component {
   render() {

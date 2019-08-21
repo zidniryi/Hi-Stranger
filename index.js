@@ -3,7 +3,9 @@ import React from 'react';
 import App from './App';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
-
+/**
+ * Connect redux to React Native
+ */
 import configureStore from './store';
 
 const store = configureStore()
