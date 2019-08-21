@@ -11,7 +11,7 @@ import {
      
      }
      
-     export default (state = initialState, action) => {
+     const peopleReducer = (state = initialState, action) => {
        switch (action.type) {
        case FETCHING_PEOPLE_REQUEST:
          return { ...state, isFetching:true };
@@ -24,3 +24,4 @@ import {
        }
      };
      
+     export default peopleReducer
