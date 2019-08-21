@@ -15,7 +15,7 @@ export const fecthPeople = () => {
     return async dispatch => {
         dispatch(fetchingPeopleRequest())
         try {
-           let response = await fetch('https://randomuser.me/api/?results=99')
+           let response = await fetch('https://randomuser.me/api/?results=10')
            let json = response.json()
            dispatch(fetchingPeopleSuccess(json.result)) 
         } catch (error) {

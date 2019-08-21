@@ -6,7 +6,7 @@ import {
 
      const initialState = {
          isFetching : false,
-         errorMessage:'',
+         errorMessage:'error jancok',
          people: []
      
      }

@@ -3,6 +3,7 @@ import { StyleSheet, View, ActivityIndicator } from "react-native";
 import PeopleList from "../components/PeopleList";
 import {fecthPeople} from '../redux/actions/peopleActions'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
  class AppContainer extends Component {
   constructor(props) {
     super(props);
@@ -24,16 +25,24 @@ import { connect } from 'react-redux';
   }
 
   componentDidMount() {
-    this.fetchRandomPeopleAPI();
+    // this.fetchRandomPeopleAPI();
+    this.props.fecthPeople()
   }
 
   render() {
-    let content = <PeopleList people={this.state.people} />;
-    if (this.state.isFetching) {
+    console.log(this.props.randomPeople.people)
+    console.log(this.props.randomPeople.isFetching)
+    let content = <PeopleList people={this.props.randomPeople.people} />;
+    if (this.props.randomPeople.isFetching) {
       content = <ActivityIndicator size="large" />;
     }
     return <View style={styles.container}>{content}</View>;
   }
+}
+
+AppContainer.propTypes = {
+  fecthPeople : PropTypes.func.isRequired,
+  randomPeople: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({
