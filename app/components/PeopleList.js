@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, FlatList, Text, Image, View } from "react-native";
+import { Container, Header, Content, Card, CardItem, Body, Title } from 'native-base';
 import PropTypes from "prop-types";
 
 export default class PeopleList extends Component {
@@ -10,33 +11,40 @@ export default class PeopleList extends Component {
 
     return (
       <View>
-        <View style={styles.cardContainerStyle}>
-          <View style={{ paddingRight: 5 }}>
-            <Text style={styles.cardTextStyle}>
-              {name.first} {name.last} {"\n"}
-              {cell} {"\n"}
-              {email}
-            </Text>
-          </View>
+             <Card>
+            <CardItem style={styles.cardContainerStyle}>
+              <View style={{flexDirection: 'column'}}>
+                  <Text style={styles.cardTextStyle}>
+                    {name.first} {name.last}           
+                  </Text>
+                  <Text style={styles.textCell}>
+                  {cell}
+                  </Text>
+                  <Text style={styles.textCell}>                  
+                  {email}
+                  </Text>
+              </View>
           <Image
             style={styles.faceImageStyle}
             source={{ uri: picture.medium }}
           />
-        </View>
+      </CardItem>
+      </Card>
       </View>
     );
   };
 
   render() {
     return (
+      <Container>
       <FlatList
-        style={{ flex: 1 }}
         data={this.props.people}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       />
+      </Container>
     );
   }
 }
@@ -56,16 +64,21 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: 20,
-    backgroundColor: "#4e8087",
-    padding: 10
   },
   faceImageStyle: {
     width: 65,
-    height: 65
+    height: 65,
+    borderRadius: 50
   },
   cardTextStyle: {
-    color: "white",
-    textAlign: "left"
-  }
+    color: "#000000",
+    textAlign: "left",
+    fontWeight: '600',
+    fontSize:16
+    
+  },
+  textCell:{
+    fontSize:12,
+    color:'grey'
+  },
 });

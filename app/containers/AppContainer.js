@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StyleSheet, View, ActivityIndicator, StatusBar } from "react-native";
 import PeopleList from "../components/PeopleList";
 import {fecthPeople} from '../redux/actions/peopleActions'
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import { Container, Header, Text, Title, Body, Left, Right } from "native-base";
  class AppContainer extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +36,22 @@ import PropTypes from "prop-types";
     if (this.props.randomPeople.isFetching) {
       content = <ActivityIndicator size="large" />;
     }
-    return <View style={styles.container}>{content}</View>;
+    return (
+    <Container> 
+      <Header style={{backgroundColor: '#18dcff'}} androidStatusBarColor="#17c0eb">
+        <Left style={{flex:1}}/>
+        <Body>
+          <Title style={{fontSize:14}}>
+            HI STRANGER
+          </Title>
+          </Body> 
+          <Right style={{flex:1}}/>
+      </Header>   
+      <View style={styles.container}>
+        {content}
+      </View>
+    </Container>
+      );
   }
 }
 
@@ -52,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#093339"
+    backgroundColor: "#FFFFFF"
   }
 });
 
