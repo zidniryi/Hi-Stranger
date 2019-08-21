@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
     color: "#000000",
     textAlign: "left",
     fontWeight: '600',
-    fontSize:16
-    
+    fontSize:16,
+    textTransform: 'capitalize'
   },
   textCell:{
     fontSize:12,

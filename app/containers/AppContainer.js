@@ -34,11 +34,11 @@ import { Container, Header, Text, Title, Body, Left, Right } from "native-base";
     console.log(this.props.randomPeople.isFetching)
     let content = <PeopleList people={this.props.randomPeople.people} />;
     if (this.props.randomPeople.isFetching) {
-      content = <ActivityIndicator size="large" />;
+      content = <ActivityIndicator size="large" color="#18dcff" />;
     }
     return (
     <Container> 
-      <Header style={{backgroundColor: '#18dcff'}} androidStatusBarColor="#17c0eb">
+      <Header style={{backgroundColor: "#18dcff"}} androidStatusBarColor="#17c0eb">
         <Left style={{flex:1}}/>
         <Body>
           <Title style={{fontSize:14}}>
